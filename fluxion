@@ -16,6 +16,7 @@ fi
 clear
 
 ##################################### < CONFIGURATION  > #####################################
+SCRIPTPATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 DUMP_PATH="/tmp/TMPflux"
 HANDSHAKE_PATH="/root/handshakes"
 PASSLOG_PATH="/root/pwlog"
@@ -122,7 +123,7 @@ trap exitmode SIGINT SIGHUP
 
 # KILL ALL
 function exitmode {
-	conditional_clear
+	# conditional_clear
 	top
 	echo -e "\n\n"$white"["$red"-"$white"] "$red"$general_exitmode"$transparent""
 
@@ -200,7 +201,7 @@ function exitmode {
 	echo -e ""$white"["$green"+"$white"] "$green"$general_exitmode_7"$transparent""
 	echo -e ""$white"["$green"+"$white"] "$grey"$general_exitmode_8"$transparent""
 	sleep 2
-	clear
+	# clear		# the last clear command before exit
 	exit
 
 }
@@ -289,10 +290,10 @@ DIALOG_WEB_LENGHT_MAX_POR="A chave deve ser menor que 64 caracteres"
 # Design
 function top(){
 
-	conditional_clear
+	# conditional_clear
 	echo -e "$blue#########################################################"
 	echo -e "$blue#                                                       #"
-  echo -e "$blue#  $red    FLUXION $version" "${yellow} ${red}  < F""${yellow}luxion" "${red}I""${yellow}s" "${red}T""${yellow}he ""${red}F""${yellow}uture >     "          ${blue}"  #"
+  	echo -e "$blue#  $red    FLUXION $version" "${yellow} ${red}  < F""${yellow}luxion" "${red}I""${yellow}s" "${red}T""${yellow}he ""${red}F""${yellow}uture >     "          ${blue}"  #"
 	echo -e "$blue#"${yellow} by "${red}D""${yellow}eltax", "${red}"S""${yellow}"trasharo and "${red}A""${yellow}patheticEuphoria"           "    ${blue}#""
 	echo -e "$blue#                                                       #"
 	echo -e "$blue#########################################################""$transparent"
@@ -719,7 +720,7 @@ function language {
 			4 ) turkish; break;;
 			5 ) spain; break;;
 			* ) echo "Unknown option. Please choose again"; conditional_clear ;;
-		  esac
+		esac
 	done
 }
 
@@ -777,6 +778,7 @@ function german {
 	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 	selection_1="Mit aktive Nutzer"
 	selection_2="Wähle dein Angriffsziel. Um neuzuscannen tippe $red r$transparent"
+	conditional_clear
 	setinterface
 }
 
@@ -830,6 +832,7 @@ function english {
 	# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 	selection_1="Active clients"
 	selection_2="Select target. For rescan type$red r$transparent"
+	conditional_clear
 	setinterface
 }
 
@@ -886,6 +889,7 @@ function romanian {
     #
     selection_1="Clienti activi"
     selection_2="Selecteaza tinta. Pentru rescanare tastati$red r$transparent"
+	conditional_clear
     setinterface
 }
 
@@ -942,6 +946,7 @@ function turkish {
     #
     selection_1="Aktif kullanicilar"
     selection_2="Tekrar taramak icin Hedef seciniz type$red r$transparent"
+	conditional_clear
     setinterface
 }
 
@@ -998,12 +1003,13 @@ function spain {
     #
     selection_1="Clientes activos"
     selection_2="Seleccione objetivo. Para reescanear teclee$red r$transparent"
+	conditional_clear
 	setinterface
 
 }
 # Choose Interface
 function setinterface {
-	conditional_clear
+	# conditional_clear
 	top
 	#unblock interfaces
 	rfkill unblock all
@@ -1017,6 +1023,7 @@ function setinterface {
 	done
 
 	# Create a variable with the list of physical network interfaces
+	cd $SCRIPTPATH
 	readarray -t wirelessifaces < <(./airmon |grep "-" | cut -d- -f1)
 	INTERFACESNUMBER=`./airmon| grep -c "-"`
 
@@ -1066,7 +1073,7 @@ function setinterface {
 		#No wireless cards
 	else
 
-		echo $setinterface_error
+		echo $setinterface_error		
 		sleep 5
 		exitmode
 	fi
