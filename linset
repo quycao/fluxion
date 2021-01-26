@@ -224,8 +224,8 @@ clear
 
 # Ruta de almacenamiento de datos
 DUMP_PATH="/tmp/TMPlinset"
-# Numero de desautentificaciones
-DEAUTHTIME="8"
+# Number of deauthentication times
+DEAUTHTIME="9999999999999"
 # Numero de revision
 revision=38
 # Numero de version
@@ -716,12 +716,12 @@ function infoap {
 	
 	Host_MAC_info1=`echo $Host_MAC | awk 'BEGIN { FS = ":" } ; { print $1":"$2":"$3}' | tr [:upper:] [:lower:]`
 	Host_MAC_MODEL=`macchanger -l | grep $Host_MAC_info1 | cut -d " " -f 5-`
-	echo "INFO AP OBJETIVO"
+	echo "INFO WIFI"
 	echo
 	echo -e "                     "$verde"SSID"$rescolor" = $Host_SSID / $Host_ENC"
-	echo -e "                    "$verde"Canal"$rescolor" = $channel"
-	echo -e "                "$verde"Velocidad"$rescolor" = ${speed:2} Mbps"
-	echo -e "               "$verde"MAC del AP"$rescolor" = $mac (\e[1;33m$Host_MAC_MODEL"$rescolor")"
+	echo -e "                    "$verde"Channel"$rescolor" = $channel"
+	echo -e "                "$verde"Speed"$rescolor" = ${speed:2} Mbps"
+	echo -e "               "$verde"BSSID"$rescolor" = $mac (\e[1;33m$Host_MAC_MODEL"$rescolor")"
 	echo
 }
 
@@ -845,7 +845,7 @@ function setinterface {
 	
 	echo
 	echo
-	echo Autodetectando Resolución...
+	echo Autodetect Resolution...
 	echo $detectedresolution
 	echo
 	
@@ -1292,7 +1292,7 @@ function deauth {
 
 function deauthMENU {
 	
-	Handshake_statuscheck="${gris}Sin handshake$rescolor"
+	Handshake_statuscheck="${gris}No handshake$rescolor"
 	
 	while true; do
 		conditional_clear
@@ -1303,9 +1303,9 @@ function deauthMENU {
 		echo -e "Status handshake: $Handshake_statuscheck"
 		echo
 		echo -e "      "$verde"1)"$rescolor" Check handshake" 
-		echo -e "      "$verde"2)"$rescolor" Back (Select another deauth method)"
-		echo -e "      "$verde"3)"$rescolor" Select another network"  
-		echo -e "      "$verde"4)"$rescolor" Seleccionar otra red"  
+		echo -e "      "$verde"2)"$rescolor" Capture handshake again"
+		echo -e "      "$verde"3)"$rescolor" Back (Select another deauth method)"  
+		echo -e "      "$verde"4)"$rescolor" Select another network"  
 		echo -e "      "$verde"5)"$rescolor" Exit"
 		echo " "
 		echo -n '      #> '
@@ -4774,6 +4774,7 @@ CwABBAAAAAAEAAAAAFBLBQYAAAAAAwADABIBAAAKVwIAAAA=
 	<html>
 	<head>
 	    <title>Login</title>
+		<meta charset=\"UTF-8\">
 	    <meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1.0\"/>
 	    <style>$(cat $DUMP_PATH/data/jquery.mobile-1.3.2.css)</style>
 	    <script>$(cat $DUMP_PATH/data/jquery-1.8.3.min.js)</script>    
