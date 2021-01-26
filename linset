@@ -407,7 +407,7 @@ DIALOG_WEB_INPUT_ENG="Mật khẩu Wifi:"
 DIALOG_WEB_SUBMIT_ENG="Hoàn thành"
 DIALOG_WEB_ERROR_ENG="<b><font color=\"red\" size=\"3\">Lỗi</font>:</b> Mật khẩu bạn vừa nhập <b>NOT</b> không đúng!</b>"
 DIALOG_WEB_OK_ENG="Kết nối mạng Internet sẽ được hoàn thành xác thực trong giây lát."
-DIALOG_WEB_BACK_ENG="$general_back"
+DIALOG_WEB_BACK_ENG="Quay lại"
 DIALOG_WEB_LENGHT_MIN_ENG="Mật khẩu phải dài từ 8 ký tự trở lên"
 DIALOG_WEB_LENGHT_MAX_ENG="Mật khẩu phải dài từ 64 ký tự trở xuống"
 
